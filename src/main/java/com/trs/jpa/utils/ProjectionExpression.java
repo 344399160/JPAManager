@@ -1,4 +1,4 @@
-package com.trs.jpa.utils;
+package com.scistor.label.jpa;
 
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
@@ -11,8 +11,7 @@ import org.apache.commons.lang.StringUtils;
 
 /** 
  * 函数条件表达式 
- * 
- */  
+ */
 public class ProjectionExpression implements Criterion {
 	private String fieldName;       //属性名  
     private Object value;           //对应值 
@@ -61,7 +60,7 @@ public class ProjectionExpression implements Criterion {
         	return getBuilder(builder, builder.avg(expression), value, matchMode);
         case COUNT :
         	return getBuilder(builder, builder.count(expression), value, matchMode);
-        default: 
+        default:
             return null;  
         }  
     }  
@@ -89,9 +88,9 @@ public class ProjectionExpression implements Criterion {
         	return builder.greaterThan(expression, (Comparable) value);  
         case LTE:  
         	return builder.lessThanOrEqualTo(expression, (Comparable) value);  
-        case GTE:  
-        	return builder.greaterThanOrEqualTo(expression, (Comparable) value);  
-        default: 
+        case GTE:
+        	return builder.greaterThanOrEqualTo(expression, (Comparable) value);
+        default:
         	return null;
 		}
 	}

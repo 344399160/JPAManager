@@ -1,4 +1,4 @@
-package com.trs.jpa.utils;
+package com.scistor.label.jpa;
 
 import java.util.ArrayList;
 import java.util.List;

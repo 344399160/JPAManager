@@ -1,8 +1,7 @@
-package com.trs.jpa.utils;
+package com.scistor.label.jpa;
 /** 
  * 函数条件构造器 
- *  
- */  
+ */
 public class Projection{
 	//函数作用字段
 	private String col;

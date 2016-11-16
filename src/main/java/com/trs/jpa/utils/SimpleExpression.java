@@ -1,4 +1,4 @@
-package com.trs.jpa.utils;
+package com.scistor.label.jpa;
 
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
@@ -11,14 +11,18 @@ import org.apache.commons.lang.StringUtils;
 
 /** 
  * 简单条件表达式 
- * 
- */  
+ */
 public class SimpleExpression implements Criterion {
 	private String fieldName;       //属性名  
     private Object value;           //对应值  
     private Operator operator;      //计算符 
     private MatchMode matchMode;    //like匹配方式
-  
+
+    protected SimpleExpression(String fieldName, Operator operator) {
+        this.fieldName = fieldName;
+        this.operator = operator;
+    }
+
     protected SimpleExpression(String fieldName, Object value, Operator operator) {  
         this.fieldName = fieldName;  
         this.value = value;  
@@ -82,7 +86,15 @@ public class SimpleExpression implements Criterion {
         case LTE:  
             return builder.lessThanOrEqualTo(expression, (Comparable) value);  
         case GTE:  
-            return builder.greaterThanOrEqualTo(expression, (Comparable) value);  
+            return builder.greaterThanOrEqualTo(expression, (Comparable) value);
+        case ISNOTNULL:
+            return builder.isNotNull(expression);
+        case ISNULL:
+            return builder.isNull(expression);
+        case ISEMPTY:
+            return builder.isEmpty(expression);
+        case ISNOTEMPTY:
+            return builder.isNotEmpty(expression);
         default:  
             return null;  
         }  

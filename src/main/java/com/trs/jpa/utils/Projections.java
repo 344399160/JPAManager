@@ -1,4 +1,4 @@
-package com.trs.jpa.utils;
+package com.scistor.label.jpa;
 /*
  * 计算用类
  * */
@@ -19,4 +19,5 @@ public class Projections {
 	public static Projection Sum(String col){
 		return new Projection(col, Criterion.Projection.SUM);
 	}
+
 }
